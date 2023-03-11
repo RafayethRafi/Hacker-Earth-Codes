@@ -14,22 +14,18 @@ int main()
         string name;
         cin>>name>>marks;
 
-        mp[marks].insert(name);
+        mp[-1*marks].insert(name);
     }
 
-    auto cur_it = --mp.end();
-
-    while(1)
+    for(auto &x : mp)
     {
-        auto &students = (*cur_it).second;
-        int marks = (*cur_it).first;
+        auto &students = x.second;
+        int marks = x.first;
 
-        for(auto u:students)
+        for(auto &u : students)
         {
-            cout<<u<<" "<<marks<<endl;
+            cout<<u<<" "<<(-1*marks)<<endl;
         }
-        if(cur_it == mp.begin()) break;
-        cur_it--;
     }
 
 
